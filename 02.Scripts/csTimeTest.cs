@@ -28,5 +28,7 @@ public class csTimeTest : MonoBehaviour
     {
         ButtonClickTime = System.DateTime.Now;
         txt2.text = ButtonClickTime.ToString("hh:mm:ss");
+        
+        
     }
 }
