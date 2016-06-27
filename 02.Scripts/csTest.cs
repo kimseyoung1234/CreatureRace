@@ -13,7 +13,7 @@ public class csTest : MonoBehaviour
     {
         if (GUI.Button(new Rect(10, 10, 80, 50), "Add One"))
         {
-            GameObject goTemp = Instantiate(clone, Vector3.zero, Quaternion.identity) as GameObject;
+            GameObject goTemp = Instantiate(clone, parent.GetComponent<Transform>().position, Quaternion.identity) as GameObject;
             goTemp.transform.parent = parent.transform;
             goTemp.name = "child_" + nName;
             nName++;
