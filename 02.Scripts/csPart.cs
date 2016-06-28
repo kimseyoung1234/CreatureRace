@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class csTest : MonoBehaviour
+public class csPart : MonoBehaviour
 {
     public GameObject clone;
     public GameObject parent;

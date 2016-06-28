@@ -28,7 +28,6 @@ public class csTimeTest : MonoBehaviour
         TamSaStart = System.DateTime.Now;
     }
 	
-
 	void Update ()
     {
         txt.text = System.DateTime.Now.ToString("hh:mm:ss");  
@@ -45,6 +44,7 @@ public class csTimeTest : MonoBehaviour
     public void Check()
     {
         tmp = System.DateTime.Now - ButtonClickTime;
-        txt3.text = tmp.ToString();
+        txt3.text = ""+tmp.Minutes;
+
     }
 }
