@@ -75,6 +75,7 @@ namespace UnityStandardAssets.Utility
             if (progressStyle == ProgressStyle.PointToPoint)
             {
                 target.position = circuit.Waypoints[progressNum].position;
+               
                 target.rotation = circuit.Waypoints[progressNum].rotation;
             }
         }
@@ -82,6 +83,7 @@ namespace UnityStandardAssets.Utility
 
         private void Update()
         {
+            Debug.Log("" + progressDistance);
             if (progressStyle == ProgressStyle.SmoothAlongRoute)
             {
                 // determine the position we should currently be aiming for
@@ -90,7 +92,7 @@ namespace UnityStandardAssets.Utility
                 if (Time.deltaTime > 0)
                 {
                     speed = Mathf.Lerp(speed, (lastPosition - transform.position).magnitude/Time.deltaTime,
-                                       Time.deltaTime);
+                                     Time.deltaTime);
                 }
                 target.position =
                     circuit.GetRoutePoint(progressDistance + lookAheadForTargetOffset + lookAheadForTargetFactor*speed)
