@@ -83,7 +83,7 @@ namespace UnityStandardAssets.Utility
 
         private void Update()
         {
-            Debug.Log("" + progressDistance);
+            //Debug.Log("" + progressDistance);
             if (progressStyle == ProgressStyle.SmoothAlongRoute)
             {
                 // determine the position we should currently be aiming for

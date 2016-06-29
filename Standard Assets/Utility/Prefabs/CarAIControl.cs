@@ -65,9 +65,12 @@ namespace UnityStandardAssets.Vehicles.Car
                 // Car should not be moving,
                 // use handbrake to stop
                 m_CarController.Move(0, 0, -1f, 1f);
+                // m_CarController.Move(0, 0, 0f, 0f);
+                Debug.Log("!driving");
             }
             else
             {
+                Debug.Log("~~~!driving");
                 Vector3 fwd = transform.forward;
                 if (m_Rigidbody.velocity.magnitude > m_CarController.MaxSpeed*0.1f)
                 {
