@@ -30,7 +30,7 @@ using UnityEngine;
         [SerializeField] private float m_MaxHandbrakeTorque;
         [SerializeField] private float m_Downforce = 100f;
         [SerializeField] private SpeedType m_SpeedType;
-        [SerializeField] public float m_Topspeed = 200;
+        [SerializeField] public float m_Topspeed;
         [SerializeField] private static int NoOfGears = 5;
         [SerializeField] private float m_RevRangeBoundary = 1f;
         [SerializeField] private float m_SlipLimit;
@@ -127,6 +127,7 @@ using UnityEngine;
 
         public void Move(float steering, float accel, float footbrake, float handbrake)
         {
+        //  Debug.Log("speed : " + CurrentSpeed);
             for (int i = 0; i < 4; i++)
             {
                 Quaternion quat;
@@ -179,8 +180,13 @@ using UnityEngine;
                 case SpeedType.MPH:
 
                     speed *= 2.23693629f;
-                    if (speed > m_Topspeed)
-                        m_Rigidbody.velocity = (m_Topspeed/2.23693629f) * m_Rigidbody.velocity.normalized;
+
+               // Debug.Log("maxspeed : " + m_Topspeed);
+                if (speed > m_Topspeed)
+                {
+                    m_Rigidbody.velocity = (m_Topspeed / 2.23693629f) * m_Rigidbody.velocity.normalized;
+                    Debug.Log("maxspeed over");
+                }
                     break;
 
                 case SpeedType.KPH:
